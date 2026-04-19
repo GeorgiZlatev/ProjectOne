@@ -34,3 +34,55 @@ void delete_array(int* arr)
 {
 	free(arr);
 }
+
+int** new_2d_array(int rows, int columns, int fill)
+{
+	//int** arr = new int* [rows]; // cpp
+	int** arr = (int**)malloc(sizeof(int*) * rows); // c
+	for (int i = 0; i < rows; i++)
+	{
+		//arr[i] = new int[columns]; // cpp
+		arr[i] = (int*)malloc(sizeof(int*) * columns); // c
+		for (int j = 0; j < columns; j++)
+		{
+			arr[i][j] = fill;
+		}
+	}
+	return arr;
+}
+void fill_2d_array(int** arr, int rows, int columns, int fill)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		//arr[i] = new int[columns]; // cpp
+		//arr[i] = (int*)malloc(sizeof(int*) * columns); // c
+		for (int j = 0; j < columns; j++)
+		{
+			arr[i][j] = fill;
+		}
+	}
+}
+void print_2d_array(int** arr, int rows, int columns)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		//arr[i] = new int[columns]; // cpp
+		//arr[i] = (int*)malloc(sizeof(int*) * columns); // c
+		for (int j = 0; j < columns; j++)
+		{
+			printf("%d, ", arr[i][j]);
+		}
+		printf("\n");
+	}
+}
+void delete_2d_array(int** arr, int rows) 
+{
+	for (int i = 0; i < rows; i++)
+	{
+		//delete[] arr[i]; // cpp
+		free(arr[i]); // c
+	}
+	//delete[] arr; // cpp
+	free(arr);
+	//arr = nullptr;// cpp
+}

@@ -12,19 +12,39 @@ extern "C" {
 		#include "cpp/functions.hpp"
 #endif
 
-#include <vector>
-#include <algorithm>
+////c
+//int main()
+//{
+//	int rows = 10;
+//	int columns = 10;
+//	int fill = 6;
+//
+//	while (true) {
+//		int** arr = new_2d_array(rows, columns, fill);
+//		fill_2d_array(arr, rows, columns, fill);
+//		print_2d_array(arr, rows, columns);
+//		fill_2d_array(arr, rows, columns, 3);
+//		print_2d_array(arr, rows, columns);
+//		delete_2d_array(arr, rows);
+//	}
+//}
+
+// cpp
+
+
 int main()
 {
-	std::vector<int> my_vector{ 1,2,3,4,5 };
-	std::fill(my_vector.begin(), my_vector.end(), 0);
-	// memory leak test
-	//for (size_t i = 0; i < 100000; i++)
-	//{
-		for (int i = 0; i < my_vector.size(); i++)
-		{
-			std::cout << my_vector[i] << ", ";
-		}
-		std::cout << std::endl;
-	//}
+	int rows = 10;
+	int columns = 10;
+	int fill = 6;
+
+	while (true) {
+		std::vector<std::vector<int>> matrix;
+
+		Create2DMatrix(matrix, rows, columns, fill);
+		Print2DMatrix(matrix);
+		Fill2DMatrix(matrix, -3);
+		Print2DMatrix(matrix);
+		Delete2DMatrix(matrix);
+	}
 }
