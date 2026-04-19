@@ -10,55 +10,68 @@ extern "C" {
 		#include "cpp/functions.hpp"
 #endif
 
-void one(int argOne)
-{
-	argOne *= 2;
-	std::cout << "One: " << argOne << std::endl;
-}
-void two(int& argOne)
-{
-	argOne *= 2;
-	std::cout << "Two: " << argOne << std::endl;
-}
-void tree(int* argOne)
-{
-	(*argOne) *= 2;
-	std::cout << "Tree: " << *argOne << std::endl;
-}
 
+
+//int main()
+//{
+//	// array
+//	
+//	////const int size = 3;
+//	////int numbers[size] = { 50, 60, 70 };
+//	////std::cout << numbers << std::endl; // 0x000000AB85EFF698
+//	////std::cout << *numbers << std::endl;
+//
+//	////std::cout << numbers+1 << std::endl; // 000000E519F6F8AC
+//	////std::cout << *(numbers+1) << std::endl;
+//
+//	//const int sizeX = 3;
+//	//char word[sizeX + 1] = { 'a', 'b','c', '\0' };
+//
+//	////for (int i = 0; i < sizeX; i++)
+//	////{
+//	////	std::cout << word[i];
+//	////}
+//
+//	////int index = 0;
+//	////while (word[index] != '\0')
+//	////{
+//	////	std::cout << word[index];
+//	////	index++;
+//	////}
+//
+//	//std::cout << word << std::endl;
+//
+//	// matrix
+//
+//	const int sizeX = 3;
+//	const int sizeY = 3;
+//	//Raw arrays
+//	int matrix[sizeX][sizeY] = { {1,2,3},{4,5,6},{7,8,9} };
+//
+//	for (int i = 0; i < sizeX; i++)
+//	{
+//		for (int j = 0; j < sizeY; j++)
+//		{
+//			std::cout << matrix[i][j] << " ";
+//		}
+//		std::cout << std::endl;
+//	}
+//
+//}
+
+// Cpp
+#include <array>
 int main()
 {
-	int a = 7;
-	std::cout << "Before one: " << a << std::endl;
-	one(a);
-	std::cout << "After one: " << a << std::endl;
+	const int sizeX = 3;
+	const int sizeY = 3;
 
-	std::cout << "Before two: " << a << std::endl;
-	two(a);
-	std::cout << "After two: " << a << std::endl;
+	std::array<int, sizeX> row = { {1, 2, 3} };
 
-	std::cout << "Before tree: " << a << std::endl;
-	tree(&a);
-	std::cout << "After tree: " << a << std::endl;
-
-	//FindRoot(1, 2, -15);
-	
-	//int* ptr = nullptr;
-	//int a = 7;
-	//ptr = &a;
-
-	//int& b = a;
-
-	//a = 10;
-	//*ptr = 10;
-	//b = 10;
-
-	//std::cout << "1: " << a << std::endl; // 7
-	//std::cout << "2: " << &a << std::endl; // 0x000000928AAFF664
-	//std::cout << "3: " << ptr << std::endl; // 0x000000928AAFF664
-	//std::cout << "4: " << &ptr << std::endl; // 0x000000928AAFF648
-
-	//std::cout << "5: " << *ptr << std::endl; // 7
-	//std::cout << "6: " << b << std::endl; // 7
-	//std::cout << "7: " << &b << std::endl; // 7
+	std::array<std::array<int, sizeY>, sizeX> matrix = 
+	{ {
+		{{1,2,3}},
+		{{4,5,6}},
+		{{7,8,9}}
+	} };
 }
