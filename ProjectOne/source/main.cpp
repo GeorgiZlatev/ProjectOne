@@ -12,66 +12,28 @@ extern "C" {
 
 
 
-//int main()
-//{
-//	// array
-//	
-//	////const int size = 3;
-//	////int numbers[size] = { 50, 60, 70 };
-//	////std::cout << numbers << std::endl; // 0x000000AB85EFF698
-//	////std::cout << *numbers << std::endl;
-//
-//	////std::cout << numbers+1 << std::endl; // 000000E519F6F8AC
-//	////std::cout << *(numbers+1) << std::endl;
-//
-//	//const int sizeX = 3;
-//	//char word[sizeX + 1] = { 'a', 'b','c', '\0' };
-//
-//	////for (int i = 0; i < sizeX; i++)
-//	////{
-//	////	std::cout << word[i];
-//	////}
-//
-//	////int index = 0;
-//	////while (word[index] != '\0')
-//	////{
-//	////	std::cout << word[index];
-//	////	index++;
-//	////}
-//
-//	//std::cout << word << std::endl;
-//
-//	// matrix
-//
-//	const int sizeX = 3;
-//	const int sizeY = 3;
-//	//Raw arrays
-//	int matrix[sizeX][sizeY] = { {1,2,3},{4,5,6},{7,8,9} };
-//
-//	for (int i = 0; i < sizeX; i++)
-//	{
-//		for (int j = 0; j < sizeY; j++)
-//		{
-//			std::cout << matrix[i][j] << " ";
-//		}
-//		std::cout << std::endl;
-//	}
-//
-//}
-
-// Cpp
-#include <array>
 int main()
 {
-	const int sizeX = 3;
-	const int sizeY = 3;
+	//int a = 7; //stack
+	//int* b = new int(7); //heap
 
-	std::array<int, sizeX> row = { {1, 2, 3} };
+	//delete b;
+	//int* c = nullptr; //stack
 
-	std::array<std::array<int, sizeY>, sizeX> matrix = 
-	{ {
-		{{1,2,3}},
-		{{4,5,6}},
-		{{7,8,9}}
-	} };
+	//int arr_a[10]; //stack
+	//int* arr_b = new int[10]; //heap
+	//delete[] arr_b;
+
+	#define Base 1024
+	#define _1KB(type) new type [Base/sizeof(type)]
+	#define _1MB(type) new type [Base*Base/sizeof(type)]
+	#define _1GB(type) new type [Base*Base*Base/sizeof(type)]
+
+	int* numbers = nullptr;
+	for (int i = 0; i < 500; i++)
+	{
+		numbers = _1MB(int);
+	}
+	delete[] numbers;
+	std::cout << "";
 }
