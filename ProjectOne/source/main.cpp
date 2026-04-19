@@ -6,16 +6,11 @@ extern "C" {
 	}
 #else
 		#include <iostream>
-#endif //  C
-
-
-using namespace std;
+		#include <iomanip>
+		#include "cpp/functions.hpp"
+#endif
 
 int main()
 {
-	// C
-	//printf("Hello World!\n");
-	// Cpp
-	std::cout << "Hello World!\n";
-	return 0;
+	FindRoot(1, 2, -15);
 }
