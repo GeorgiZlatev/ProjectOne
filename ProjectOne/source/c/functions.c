@@ -1,6 +1,7 @@
 #include "functions.h"
 #include <stdio.h>
 #include <stdlib.h>
+//#include <string.h>
 
 int* new_array(int size, int fill)
 {
@@ -85,4 +86,49 @@ void delete_2d_array(int** arr, int rows)
 	//delete[] arr; // cpp
 	free(arr);
 	//arr = nullptr;// cpp
+}
+
+//c
+int my_strlen(const char* str)
+{
+	int size = { 0 };
+	while (str[size] != '\0') {
+		++size;
+	}
+	return size;
+}
+
+char* my_strcpy(char* destination, const char* source)
+{
+	int source_size = my_strlen(source);
+	for (int i = 0; i < source_size; i++)
+	{
+		destination[i] = source[i];
+	}
+	destination[source_size] = '\0';
+	return destination;
+}
+
+char* my_strcat(char* destination, const char* source)
+{
+	int source_size = my_strlen(source);
+	int destinaton_size = my_strlen(destination);
+	for (int i = 0; i < source_size; i++)
+	{
+		destination[destinaton_size + i] = source[i];
+	}
+	destination[source_size + destinaton_size] = '\0';
+	return destination;
+}
+
+int my_strcmp(const char* lhs, const char* rhs)
+{
+	int i = 0;
+	while (lhs[i]) {
+		if (lhs[i] != rhs[i]) {
+			break;
+		}
+		i++;
+	}
+	return (const unsigned char*)lhs[i] - (const unsigned char*)rhs[i];
 }
