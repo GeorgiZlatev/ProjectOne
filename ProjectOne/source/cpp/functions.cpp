@@ -1,5 +1,6 @@
 #include "functions.hpp"
 #include <iostream>
+#include <fstream>
 #include <iomanip>
 #include <vector>;
 
@@ -63,4 +64,33 @@ void Fill2DMatrix(std::vector<std::vector<int>>& matrix, int fill)
 void Delete2DMatrix(std::vector<std::vector<int>>& matrix)
 {
 	matrix.clear();
+}
+
+void writeToFile(std::string filename, std::string data)
+{
+	//a - std::ios::app
+	std::ofstream file;
+	file.open(filename /*, std::ios::app*/);
+	if (file.is_open())
+	{
+		file << data;
+		file.close();
+	}
+}
+
+std::vector<std::string> readFromFile(std::string filename)
+{
+	std::ifstream file;
+	std::vector<std::string> allRows;
+	if (file.is_open())
+	{
+		std::string row = "";
+		while (std::getline(file, row))
+		{
+			allRows.push_back(row);
+			row.clear();
+		}
+		file.close();
+	}
+	return allRows;
 }

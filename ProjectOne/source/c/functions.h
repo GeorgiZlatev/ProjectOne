@@ -19,5 +19,8 @@ char** create_char_matrix(int rows, int columns, char empty_symbol);
 int my_2Dstrlen(char** arr);
 void print_char_matrix(char** arr, int space);
 
+void write_to_file(const char* filename, const char* data);
+char** read_from_file(const char* filename);
+
 
 #endif // !functions_c
