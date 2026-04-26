@@ -15,4 +15,9 @@ char* my_strcpy(char* destination, const char* source);
 char* my_strcat(char* destination, const char* source);
 int my_strcmp(const char* lhs, const char* rhs);
 
+char** create_char_matrix(int rows, int columns, char empty_symbol);
+int my_2Dstrlen(char** arr);
+void print_char_matrix(char** arr, int space);
+
+
 #endif // !functions_c
